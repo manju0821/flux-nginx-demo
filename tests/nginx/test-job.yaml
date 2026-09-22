@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: nginx-smoke-test
+  namespace: nginx
+spec:
+  backoffLimit: 0
+
+  template:
+    spec:
+      restartPolicy: Never
+
+      containers:
+        - name: nginx-test
+          image: busybox:1.36.1
+
+          command:
+            - /bin/sh
+            - /tests/test-script.sh
+
+          volumeMounts:
+            - name: test-script
+              mountPath: /tests
+
+      volumes:
+        - name: test-script
+          configMap:
+            name: nginx-test-script
+            defaultMode: 0755
