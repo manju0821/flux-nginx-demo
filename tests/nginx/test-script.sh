@@ -7,15 +7,7 @@ echo "        NGINX SMOKE TEST"
 echo "======================================"
 
 echo
-echo "1. Checking NGINX Deployment..."
-kubectl get deployment nginx -n nginx
-
-echo
-echo "2. Checking NGINX Service..."
-kubectl get service nginx -n nginx
-
-echo
-echo "3. Testing NGINX HTTP endpoint..."
+echo "1. Testing NGINX HTTP endpoint..."
 
 HTTP_STATUS=$(wget -qO- --server-response \
   http://nginx.nginx.svc.cluster.local 2>&1 \
