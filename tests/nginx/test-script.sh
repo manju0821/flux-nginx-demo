@@ -16,7 +16,7 @@ HTTP_STATUS=$(wget -qO- --server-response \
 
 echo "HTTP Status: ${HTTP_STATUS}"
 
-if [ "$HTTP_STATUS" = "201" ]; then
+if [ "$HTTP_STATUS" = "200" ]; then
     echo
     echo "======================================"
     echo "       NGINX TEST PASSED"
