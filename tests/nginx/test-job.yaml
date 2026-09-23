@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: nginx-smoke-test-v3
+  name: nginx-smoke-test
   namespace: nginx
 spec:
   backoffLimit: 0
